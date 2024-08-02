@@ -16,6 +16,7 @@
       "@/*": ["./src/*"],
       "@components/*": ["./src/components/*"],
       "@http/*": ["./src/http/*"],
+      "@interfaces/*": ["./src/interfaces/*"],
       "@assets/*": ["./src/assets/*"],
       "@images/*": ["./src/assets/imagens/*"],
     }
