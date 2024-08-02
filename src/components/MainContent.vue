@@ -1,4 +1,6 @@
 <script lang="ts">
+    import SelectIngredients from './SelectIngredients.vue';
+
     export default {
         data() {
             return {
@@ -11,7 +13,11 @@
                     'Limão',
                 ]
             }
-        }
+        },
+
+        components: {
+            SelectIngredients,
+        },
     }
 </script>
 
@@ -33,6 +39,8 @@
                 Sua lista está vazia, selecione ingredientes para iniciar.
             </p>
         </section>
+
+        <SelectIngredients />
     </main>
 </template>
 
