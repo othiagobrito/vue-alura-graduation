@@ -23,7 +23,7 @@
             </span>
 
             <ul class="ingredientes-sua-lista">
-                <li v-for="ingredient in ingredients" class="ingrediente">
+                <li v-for="ingredient in ingredients" :key="ingredient" class="ingrediente">
                     {{ ingredient }}
                 </li>
             </ul>
