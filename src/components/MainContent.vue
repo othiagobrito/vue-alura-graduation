@@ -32,7 +32,7 @@
 
             <ul v-if="ingredients.length" class="ingredientes-sua-lista">
                 <li v-for="ingredient in ingredients" :key="ingredient">
-                    <Tag :text="ingredient" />
+                    <Tag :text="ingredient" active/>
                 </li>
             </ul>
 
