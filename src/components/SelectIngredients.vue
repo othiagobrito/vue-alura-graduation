@@ -20,6 +20,7 @@
 
         emits: [
             'addItem',
+            'removeItem',
         ],
     }
 </script>
@@ -34,7 +35,7 @@
 
         <ul class="categorias">
             <li v-for="category in categories" :key="category.nome">
-                <CardCategory :category="category" @add-item="$emit('addItem', $event)" />
+                <CardCategory :category="category" @add-item="$emit('addItem', $event)" @remove-item="$emit('removeItem', $event)" />
             </li>
         </ul>
 

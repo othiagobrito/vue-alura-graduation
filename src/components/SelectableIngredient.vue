@@ -23,14 +23,16 @@
             selectItemListener() {
                 this.selected = ! this.selected;
 
-                if (this.selected) {
-                    this.$emit('addItem', this.item);
-                }
+                this.selected
+                    ? this.$emit('addItem', this.item)
+                    : this.$emit('removeItem', this.item)
+                ;
             },
         },
 
         emits: [
             'addItem',
+            'removeItem',
         ],
     }
 </script>

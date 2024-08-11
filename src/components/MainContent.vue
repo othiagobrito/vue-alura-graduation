@@ -18,6 +18,10 @@
             addItem(item: string) {
                 this.ingredients.push(item);
             },
+
+            removeItem(item: string) {
+                this.ingredients.splice(this.ingredients.indexOf(item), 1);
+            },
         },
     }
 </script>
@@ -26,7 +30,7 @@
     <main class="conteudo-principal">
         <YourList :items="ingredients"/>
 
-        <SelectIngredients @add-item="addItem($event)" />
+        <SelectIngredients @add-item="addItem($event)" @remove-item="removeItem($event)" />
     </main>
 </template>
 

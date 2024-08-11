@@ -17,6 +17,7 @@
 
         emits: [
             'addItem',
+            'removeItem',
         ],
     }
 </script>
@@ -31,7 +32,7 @@
 
         <ul class="categoria__ingredientes">
             <li v-for="ingredient in category.ingredientes" :key="ingredient">
-                <SelectableIngredient :item="ingredient" @add-item="$emit('addItem', $event)" />
+                <SelectableIngredient :item="ingredient" @add-item="$emit('addItem', $event)" @remove-item="$emit('removeItem', $event)" />
             </li>
         </ul>
     </article>
