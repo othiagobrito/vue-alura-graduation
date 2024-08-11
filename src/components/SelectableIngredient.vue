@@ -17,12 +17,26 @@
             return {
                 selected: false,
             }
-        }
+        },
+
+        methods: {
+            selectItemListener() {
+                this.selected = ! this.selected;
+
+                if (this.selected) {
+                    this.$emit('addItem', this.item);
+                }
+            },
+        },
+
+        emits: [
+            'addItem',
+        ],
     }
 </script>
 
 <template>
-    <button class="item" @click="selected = ! selected" :aria-pressed="selected">
+    <button class="item" @click="selectItemListener" :aria-pressed="selected">
         <Tag :text="item" :active="selected"/>
     </button>
 </template>

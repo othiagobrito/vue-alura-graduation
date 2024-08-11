@@ -17,6 +17,10 @@
         components: {
             CardCategory,
         },
+
+        emits: [
+            'addItem',
+        ],
     }
 </script>
 
@@ -30,7 +34,7 @@
 
         <ul class="categorias">
             <li v-for="category in categories" :key="category.nome">
-                <CardCategory :category="category" />
+                <CardCategory :category="category" @add-item="$emit('addItem', $event)" />
             </li>
         </ul>
 

@@ -7,12 +7,17 @@
         components: {
             SelectableIngredient,
         },
+
         props: {
             category: {
                 type: Object as PropType<ICategory>,
                 required: true,
             },
         },
+
+        emits: [
+            'addItem',
+        ],
     }
 </script>
 
@@ -26,7 +31,7 @@
 
         <ul class="categoria__ingredientes">
             <li v-for="ingredient in category.ingredientes" :key="ingredient">
-                <SelectableIngredient :item="ingredient" />
+                <SelectableIngredient :item="ingredient" @add-item="$emit('addItem', $event)" />
             </li>
         </ul>
     </article>

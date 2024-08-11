@@ -5,20 +5,19 @@
     export default {
         data() {
             return {
-                ingredients: [
-                    'Alho',
-                    'Manteiga',
-                    'Orégano',
-                    'Pão',
-                    'Tomilho',
-                    'Limão',
-                ]
+                ingredients: [] as string[],
             }
         },
 
         components: {
             SelectIngredients,
             YourList,
+        },
+
+        methods: {
+            addItem(item: string) {
+                this.ingredients.push(item);
+            },
         },
     }
 </script>
@@ -27,7 +26,7 @@
     <main class="conteudo-principal">
         <YourList :items="ingredients"/>
 
-        <SelectIngredients />
+        <SelectIngredients @add-item="addItem($event)" />
     </main>
 </template>
 
