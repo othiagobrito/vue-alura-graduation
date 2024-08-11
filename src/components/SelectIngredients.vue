@@ -1,5 +1,6 @@
 <script lang="ts">
     import CardCategory from './CardCategory.vue';
+    import MainButton from './MainButton.vue';
     import { getCategories } from '@http/index';
     import type ICategory from '@interfaces/ICategory';
 
@@ -16,6 +17,7 @@
 
         components: {
             CardCategory,
+            MainButton,
         },
 
         emits: [
@@ -42,6 +44,8 @@
         <p class="paragrafo dica">
             * Atenção: consideramos que você tem em casa sal, pimenta e água.
         </p>
+
+        <MainButton text="Buscar receitas!"/>
     </section>
 </template>
 
