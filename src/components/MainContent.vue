@@ -39,15 +39,17 @@
     <main class="conteudo-principal">
         <YourList :items="ingredients"/>
 
-        <SelectIngredients v-if="content === 'SelectIngredients'"
-            @add-item="addItem($event)"
-            @remove-item="removeItem($event)"
-            @search-recipes="navigate('ShowRecipes')"
-        />
+        <KeepAlive include="SelectIngredients">
+            <SelectIngredients v-if="content === 'SelectIngredients'"
+                @add-item="addItem($event)"
+                @remove-item="removeItem($event)"
+                @search-recipes="navigate('ShowRecipes')"
+            />
 
-        <ShowRecipes v-else-if="content === 'ShowRecipes'"
-            @edit-ingredients="navigate('SelectIngredients')"
-        />
+            <ShowRecipes v-else-if="content === 'ShowRecipes'"
+                @edit-ingredients="navigate('SelectIngredients')"
+            />
+        </KeepAlive>
     </main>
 </template>
 

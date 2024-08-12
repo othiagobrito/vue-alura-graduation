@@ -5,6 +5,8 @@
     import type ICategory from '@interfaces/ICategory';
 
     export default {
+        name: 'SelectIngredients',
+
         data() {
             return {
                 categories: [] as ICategory[],
