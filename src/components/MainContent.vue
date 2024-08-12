@@ -46,6 +46,7 @@
         />
 
         <ShowRecipes v-else-if="content === 'ShowRecipes'"
+            @edit-ingredients="navigate('SelectIngredients')"
         />
     </main>
 </template>
