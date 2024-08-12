@@ -46,7 +46,7 @@
                 @search-recipes="navigate('ShowRecipes')"
             />
 
-            <ShowRecipes v-else-if="content === 'ShowRecipes'"
+            <ShowRecipes :ingredients="ingredients" v-else-if="content === 'ShowRecipes'"
                 @edit-ingredients="navigate('SelectIngredients')"
             />
         </KeepAlive>

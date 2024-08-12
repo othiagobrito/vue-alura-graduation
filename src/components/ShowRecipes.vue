@@ -1,10 +1,18 @@
 <script lang="ts">
+    import type { PropType } from 'vue';
     import MainButton from './MainButton.vue';
     import RecipeCard from './RecipeCard.vue';
     import type IRecipe from '@/interfaces/IRecipe';
     import { getRecipes } from '@http/index';
 
     export default {
+        props: {
+            ingredients: {
+                type: Array as PropType<string[]>,
+                required: true,
+            },
+        },
+
         data() {
             return {
                 recipes: [] as IRecipe[],
@@ -12,7 +20,7 @@
         },
 
         async created() {
-            this.recipes = (await getRecipes()).slice(0, 8);
+            this.recipes = (await getRecipes()).filter(recipe => recipe.ingredientes.every(ingredient => this.ingredients.includes(ingredient)));
         },
 
         components: {
