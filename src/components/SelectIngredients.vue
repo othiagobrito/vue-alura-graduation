@@ -23,6 +23,7 @@
         emits: [
             'addItem',
             'removeItem',
+            'searchRecipes',
         ],
     }
 </script>
@@ -45,7 +46,7 @@
             * Atenção: consideramos que você tem em casa sal, pimenta e água.
         </p>
 
-        <MainButton text="Buscar receitas!"/>
+        <MainButton text="Buscar receitas!" @click="$emit('searchRecipes')" />
     </section>
 </template>
 

@@ -1,26 +1,35 @@
 <script lang="ts">
-    import SelectIngredients from './SelectIngredients.vue';
     import YourList from './YourList.vue';
+    import SelectIngredients from './SelectIngredients.vue';
+    import ShowRecipes from './ShowRecipes.vue';
+
+    type Page = 'SelectIngredients' | 'ShowRecipes';
 
     export default {
         data() {
             return {
                 ingredients: [] as string[],
+                content: 'SelectIngredients' as Page,
             }
         },
 
         components: {
-            SelectIngredients,
             YourList,
+            SelectIngredients,
+            ShowRecipes,
         },
 
         methods: {
-            addItem(item: string) {
+            addItem(item: string): void {
                 this.ingredients.push(item);
             },
 
-            removeItem(item: string) {
+            removeItem(item: string): void {
                 this.ingredients.splice(this.ingredients.indexOf(item), 1);
+            },
+
+            navigate(page: Page): void {
+                this.content = page;
             },
         },
     }
@@ -30,7 +39,14 @@
     <main class="conteudo-principal">
         <YourList :items="ingredients"/>
 
-        <SelectIngredients @add-item="addItem($event)" @remove-item="removeItem($event)" />
+        <SelectIngredients v-if="content === 'SelectIngredients'"
+            @add-item="addItem($event)"
+            @remove-item="removeItem($event)"
+            @search-recipes="navigate('ShowRecipes')"
+        />
+
+        <ShowRecipes v-else-if="content === 'ShowRecipes'"
+        />
     </main>
 </template>
 
